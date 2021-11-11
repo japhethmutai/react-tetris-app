@@ -30,7 +30,6 @@ const Tetris = () => {
     }
 
     const startGame = () => {
-        console.log("test")
         // Reset everything
         setStage(createStage());
         resetPlayer();
@@ -55,7 +54,7 @@ const Tetris = () => {
         drop();
     }
 
-    const move = ({ keyCode }) => {
+  const move = ({ keyCode }) => {
         if (!gameOver) {
             if (keyCode === 37) {
                 movePlayer(-1);
@@ -67,23 +66,23 @@ const Tetris = () => {
                 playerRotate(stage, 1);
             }
         }
-    }
+  }
 
-    return (
+  return (
         <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
             <StyledTetris>
                 <Stage stage={stage} />
                 <aside>
-                    {gameOver ? (
-                        <Display gameOver={gameOver} text="Game Over" />
-                    ) : (
-                        <div>
-                        <Display text="Score" />
-                        <Display text="Rows" />
-                        <Display text="Level" />
-                        </div>
-                    )}
-                    <StartButton callback={startGame} />
+                {gameOver ? (
+                    <Display gameOver={gameOver} text="Game Over" />
+                ) : (
+                    <div>
+                    <Display text="Score" />
+                    <Display text="Rows" />
+                    <Display text="Level" />
+                    </div>
+                )}
+                <StartButton callback={startGame} />
                 </aside>
             </StyledTetris>
         </StyledTetrisWrapper>
